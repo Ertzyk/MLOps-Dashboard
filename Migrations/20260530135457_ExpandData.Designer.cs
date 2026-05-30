@@ -3,6 +3,7 @@ using System;
 using MLOps_Dashboard.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MLOps_Dashboard.Migrations
 {
     [DbContext(typeof(MLOpsContext))]
-    partial class MLOpsContextModelSnapshot : ModelSnapshot
+    [Migration("20260530135457_ExpandData")]
+    partial class ExpandData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.8");
@@ -149,71 +152,6 @@ namespace MLOps_Dashboard.Migrations
                     b.HasIndex("ArchitectureId");
 
                     b.ToTable("Hyperparameters");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ArchitectureId = 1,
-                            Key = "n_estimators",
-                            Value = "500"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ArchitectureId = 1,
-                            Key = "max_depth",
-                            Value = "25"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ArchitectureId = 2,
-                            Key = "learning_rate",
-                            Value = "0.001"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ArchitectureId = 2,
-                            Key = "batch_size",
-                            Value = "64"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ArchitectureId = 3,
-                            Key = "eta",
-                            Value = "0.05"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            ArchitectureId = 3,
-                            Key = "subsample",
-                            Value = "0.8"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            ArchitectureId = 4,
-                            Key = "hidden_units",
-                            Value = "256"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            ArchitectureId = 6,
-                            Key = "C",
-                            Value = "1.0"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            ArchitectureId = 6,
-                            Key = "kernel",
-                            Value = "linear"
-                        });
                 });
 
             modelBuilder.Entity("MLOps_Dashboard.Models.TrainingRun", b =>
@@ -252,7 +190,7 @@ namespace MLOps_Dashboard.Migrations
                             Accuracy = 0.94099999999999995,
                             ArchitectureId = 1,
                             DatasetId = 1,
-                            Timestamp = new DateTime(2026, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Timestamp = new DateTime(2026, 5, 20, 15, 54, 56, 42, DateTimeKind.Local).AddTicks(6426),
                             TrainingTimeMs = 12000.0
                         },
                         new
@@ -261,7 +199,7 @@ namespace MLOps_Dashboard.Migrations
                             Accuracy = 0.99299999999999999,
                             ArchitectureId = 2,
                             DatasetId = 1,
-                            Timestamp = new DateTime(2026, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Timestamp = new DateTime(2026, 5, 21, 15, 54, 56, 48, DateTimeKind.Local).AddTicks(546),
                             TrainingTimeMs = 340000.0
                         },
                         new
@@ -270,7 +208,7 @@ namespace MLOps_Dashboard.Migrations
                             Accuracy = 0.91500000000000004,
                             ArchitectureId = 6,
                             DatasetId = 1,
-                            Timestamp = new DateTime(2026, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Timestamp = new DateTime(2026, 5, 22, 15, 54, 56, 48, DateTimeKind.Local).AddTicks(593),
                             TrainingTimeMs = 4500.0
                         },
                         new
@@ -279,7 +217,7 @@ namespace MLOps_Dashboard.Migrations
                             Accuracy = 0.82099999999999995,
                             ArchitectureId = 1,
                             DatasetId = 2,
-                            Timestamp = new DateTime(2026, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Timestamp = new DateTime(2026, 5, 23, 15, 54, 56, 48, DateTimeKind.Local).AddTicks(601),
                             TrainingTimeMs = 800.0
                         },
                         new
@@ -288,7 +226,7 @@ namespace MLOps_Dashboard.Migrations
                             Accuracy = 0.84499999999999997,
                             ArchitectureId = 3,
                             DatasetId = 2,
-                            Timestamp = new DateTime(2026, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Timestamp = new DateTime(2026, 5, 24, 15, 54, 56, 48, DateTimeKind.Local).AddTicks(607),
                             TrainingTimeMs = 1200.0
                         },
                         new
@@ -297,7 +235,7 @@ namespace MLOps_Dashboard.Migrations
                             Accuracy = 0.53100000000000003,
                             ArchitectureId = 1,
                             DatasetId = 3,
-                            Timestamp = new DateTime(2026, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Timestamp = new DateTime(2026, 5, 25, 15, 54, 56, 48, DateTimeKind.Local).AddTicks(612),
                             TrainingTimeMs = 85000.0
                         },
                         new
@@ -306,7 +244,7 @@ namespace MLOps_Dashboard.Migrations
                             Accuracy = 0.59199999999999997,
                             ArchitectureId = 4,
                             DatasetId = 3,
-                            Timestamp = new DateTime(2026, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Timestamp = new DateTime(2026, 5, 26, 15, 54, 56, 48, DateTimeKind.Local).AddTicks(616),
                             TrainingTimeMs = 920000.0
                         },
                         new
@@ -315,7 +253,7 @@ namespace MLOps_Dashboard.Migrations
                             Accuracy = 0.56499999999999995,
                             ArchitectureId = 3,
                             DatasetId = 3,
-                            Timestamp = new DateTime(2026, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Timestamp = new DateTime(2026, 5, 27, 15, 54, 56, 48, DateTimeKind.Local).AddTicks(621),
                             TrainingTimeMs = 110000.0
                         },
                         new
@@ -324,7 +262,7 @@ namespace MLOps_Dashboard.Migrations
                             Accuracy = 0.94199999999999995,
                             ArchitectureId = 2,
                             DatasetId = 4,
-                            Timestamp = new DateTime(2026, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Timestamp = new DateTime(2026, 5, 28, 15, 54, 56, 48, DateTimeKind.Local).AddTicks(626),
                             TrainingTimeMs = 1850000.0
                         },
                         new
@@ -333,7 +271,7 @@ namespace MLOps_Dashboard.Migrations
                             Accuracy = 0.45000000000000001,
                             ArchitectureId = 1,
                             DatasetId = 4,
-                            Timestamp = new DateTime(2026, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Timestamp = new DateTime(2026, 5, 29, 15, 54, 56, 48, DateTimeKind.Local).AddTicks(630),
                             TrainingTimeMs = 45000.0
                         },
                         new
@@ -342,7 +280,7 @@ namespace MLOps_Dashboard.Migrations
                             Accuracy = 0.999,
                             ArchitectureId = 3,
                             DatasetId = 5,
-                            Timestamp = new DateTime(2026, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Timestamp = new DateTime(2026, 5, 30, 15, 54, 56, 48, DateTimeKind.Local).AddTicks(635),
                             TrainingTimeMs = 34000.0
                         },
                         new
@@ -351,7 +289,7 @@ namespace MLOps_Dashboard.Migrations
                             Accuracy = 0.98499999999999999,
                             ArchitectureId = 6,
                             DatasetId = 5,
-                            Timestamp = new DateTime(2026, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Timestamp = new DateTime(2026, 5, 30, 10, 54, 56, 48, DateTimeKind.Local).AddTicks(639),
                             TrainingTimeMs = 12000.0
                         });
                 });

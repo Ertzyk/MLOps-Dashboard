@@ -26,7 +26,7 @@
                 <tr>
                     <td class="fw-bold">@run.Dataset.Name</td>
                     <td>@run.Architecture.Name</td>
-                    <td class="text-success fw-bold">@(run.Accuracy * 100)%</td>
+                    <td class="text-success fw-bold">@((run.Accuracy * 100).ToString("0.0"))%</td>
                     <td>@run.TrainingTimeMs</td>
                     <td>@run.Timestamp.ToString("yyyy-MM-dd")</td>
                 </tr>

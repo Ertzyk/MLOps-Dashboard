@@ -48,8 +48,8 @@ namespace MLOps_Dashboard.Controllers
         // GET: TrainingRuns/Create
         public IActionResult Create()
         {
-            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Id");
-            ViewData["DatasetId"] = new SelectList(_context.Datasets, "Id", "Id");
+            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Name");
+            ViewData["DatasetId"] = new SelectList(_context.Datasets, "Id", "Name");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace MLOps_Dashboard.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Id", trainingRun.ArchitectureId);
-            ViewData["DatasetId"] = new SelectList(_context.Datasets, "Id", "Id", trainingRun.DatasetId);
+            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Name", trainingRun.ArchitectureId);
+            ViewData["DatasetId"] = new SelectList(_context.Datasets, "Id", "Name", trainingRun.DatasetId);
             return View(trainingRun);
         }
 
@@ -84,8 +84,8 @@ namespace MLOps_Dashboard.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Id", trainingRun.ArchitectureId);
-            ViewData["DatasetId"] = new SelectList(_context.Datasets, "Id", "Id", trainingRun.DatasetId);
+            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Name", trainingRun.ArchitectureId);
+            ViewData["DatasetId"] = new SelectList(_context.Datasets, "Id", "Name", trainingRun.DatasetId);
             return View(trainingRun);
         }
 
@@ -121,8 +121,8 @@ namespace MLOps_Dashboard.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Id", trainingRun.ArchitectureId);
-            ViewData["DatasetId"] = new SelectList(_context.Datasets, "Id", "Id", trainingRun.DatasetId);
+            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Name", trainingRun.ArchitectureId);
+            ViewData["DatasetId"] = new SelectList(_context.Datasets, "Id", "Name", trainingRun.DatasetId);
             return View(trainingRun);
         }
 

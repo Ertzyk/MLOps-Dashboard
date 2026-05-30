@@ -47,7 +47,7 @@ namespace MLOps_Dashboard.Controllers
         // GET: Hyperparameters/Create
         public IActionResult Create()
         {
-            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Id");
+            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Name");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace MLOps_Dashboard.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Id", hyperparameter.ArchitectureId);
+            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Name", hyperparameter.ArchitectureId);
             return View(hyperparameter);
         }
 
@@ -81,7 +81,7 @@ namespace MLOps_Dashboard.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Id", hyperparameter.ArchitectureId);
+            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Name", hyperparameter.ArchitectureId);
             return View(hyperparameter);
         }
 
@@ -117,7 +117,7 @@ namespace MLOps_Dashboard.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Id", hyperparameter.ArchitectureId);
+            ViewData["ArchitectureId"] = new SelectList(_context.Architectures, "Id", "Name", hyperparameter.ArchitectureId);
             return View(hyperparameter);
         }
 
