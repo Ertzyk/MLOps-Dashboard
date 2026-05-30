@@ -1,8 +1,36 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<MLOps_Dashboard.Models.TrainingRun>
+
+@{
+    ViewData["Title"] = "MLOps Dashboard";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Model Performance Leaderboard</h1>
+    <p>Tracking the highest accuracy architectures across all registered datasets.</p>
+</div>
+
+<div class="container mt-5">
+    <table class="table table-striped table-hover border">
+        <thead class="table-dark">
+            <tr>
+                <th>Dataset</th>
+                <th>Best Architecture</th>
+                <th>Peak Accuracy</th>
+                <th>Training Time (ms)</th>
+                <th>Date Achieved</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var run in Model)
+            {
+                <tr>
+                    <td class="fw-bold">@run.Dataset.Name</td>
+                    <td>@run.Architecture.Name</td>
+                    <td class="text-success fw-bold">@(run.Accuracy * 100)%</td>
+                    <td>@run.TrainingTimeMs</td>
+                    <td>@run.Timestamp.ToString("yyyy-MM-dd")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
